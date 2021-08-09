@@ -19,7 +19,7 @@ Future<Metadata> extract(String url) async {
   default_output.description = url;
 
   // Make our network call
-  final response = await http.get(url);
+  final response = await http.get(Uri.parse(url));
   final document = responseToDocument(response);
 
   if (document == null) {

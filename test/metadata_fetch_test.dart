@@ -9,7 +9,7 @@ import 'package:test/test.dart';
 void main() {
   test('JSON Serialization', () async {
     var url = 'https://flutter.dev';
-    var response = await http.get(url);
+    var response = await http.get(Uri.parse(url));
     var document = responseToDocument(response);
     var data = MetadataParser.parse(document);
     print(data.toJson());
@@ -18,7 +18,7 @@ void main() {
 
   test('Metadata Parser', () async {
     var url = 'https://flutter.dev';
-    var response = await http.get(url);
+    var response = await http.get(Uri.parse(url));
     var document = responseToDocument(response);
 
     var data = MetadataParser.parse(document);
@@ -42,7 +42,7 @@ void main() {
   group('Metadata parsers', () {
     test('JSONLD', () async {
       var url = 'https://www.epicurious.com/';
-      var response = await http.get(url);
+      var response = await http.get(Uri.parse(url));
       var document = responseToDocument(response);
       // print(response.statusCode);
 
@@ -52,7 +52,7 @@ void main() {
     test('JSONLD II', () async {
       var url =
           'https://www.epicurious.com/expert-advice/best-soy-sauce-chefs-pick-article';
-      var response = await http.get(url);
+      var response = await http.get(Uri.parse(url));
       var document = responseToDocument(response);
       // print(response.statusCode);
 
@@ -62,7 +62,7 @@ void main() {
     test('JSONLD III', () async {
       var url =
           'https://medium.com/@quicky316/install-flutter-sdk-on-windows-without-android-studio-102fdf567ce4';
-      var response = await http.get(url);
+      var response = await http.get(Uri.parse(url));
       var document = responseToDocument(response);
       // print(response.statusCode);
 
@@ -71,7 +71,7 @@ void main() {
 
     test('JSONLD IV', () async {
       var url = 'https://www.distilled.net/';
-      var response = await http.get(url);
+      var response = await http.get(Uri.parse(url));
       var document = responseToDocument(response);
       // print(response.statusCode);
 
@@ -79,7 +79,7 @@ void main() {
     });
     test('HTML', () async {
       var url = 'https://flutter.dev';
-      var response = await http.get(url);
+      var response = await http.get(Uri.parse(url));
       var document = responseToDocument(response);
       print(response.statusCode);
 
@@ -90,7 +90,7 @@ void main() {
 
     test('OpenGraph Parser', () async {
       var url = 'https://flutter.dev';
-      var response = await http.get(url);
+      var response = await http.get(Uri.parse(url));
       var document = responseToDocument(response);
       print(response.statusCode);
 
@@ -103,7 +103,7 @@ void main() {
     test('TwitterCard Parser', () async {
       var url =
           'https://www.epicurious.com/expert-advice/best-soy-sauce-chefs-pick-article';
-      var response = await http.get(url);
+      var response = await http.get(Uri.parse(url));
       var document = responseToDocument(response);
       print(response.statusCode);
 
@@ -117,7 +117,7 @@ void main() {
 
     test('Faulty', () async {
       var url = 'https://google.ca';
-      var response = await http.get(url);
+      var response = await http.get(Uri.parse(url));
       var document = responseToDocument(response);
       print(response.statusCode);
 
